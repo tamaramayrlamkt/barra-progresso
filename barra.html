@@ -3,29 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Barra de Progresso</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{background:transparent;font-family:Arial,Helvetica,sans-serif}
-.progress{width:100%;height:44px;background:#E5E5E5;border-radius:8px;overflow:hidden}
-.progress-fill{width:0%;height:100%;background:#0057B8;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 18px;font-size:15px;font-weight:600;white-space:nowrap;transition:width 1.2s ease}
-.progress-fill span:last-child{margin-left:20px}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    background:transparent;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.progress{
+    width:100%;
+    height:44px;
+    background:#E5E5E5;
+    border-radius:8px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:0%;
+    height:100%;
+    background:#0057B8;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    padding:0 18px;
+    font-size:15px;
+    font-weight:600;
+    transition:width 1.2s ease;
+}
 </style>
+
 </head>
 <body>
+
 <div class="progress">
-  <div class="progress-fill" id="barra">
-    <span id="texto"></span>
-    <span id="percentual"></span>
-  </div>
+    <div class="progress-fill" id="barra">
+        Andamento da Obra
+    </div>
 </div>
+
 <script>
-const params=new URLSearchParams(window.location.search);
-const percentual=Math.max(0,Math.min(100,parseInt(params.get("p"))||67));
-const texto=params.get("t")||"Andamento da Obra";
-document.getElementById("texto").textContent=texto;
-document.getElementById("percentual").textContent=percentual+"%";
-window.addEventListener("load",()=>{setTimeout(()=>{document.getElementById("barra").style.width=percentual+"%";},150);});
+
+/* ===========================
+   ALTERE SOMENTE ESTA LINHA
+   =========================== */
+
+const percentual = 67;
+
+/* =========================== */
+
+window.onload = () => {
+    setTimeout(() => {
+        document.getElementById("barra").style.width = percentual + "%";
+    }, 200);
+};
+
 </script>
+
 </body>
 </html>
