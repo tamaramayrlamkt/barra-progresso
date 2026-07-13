@@ -33,7 +33,7 @@ html,body{
     color:#fff;
     display:flex;
     align-items:center;
-    justify-content:flex-start;
+    justify-content:space-between;
     padding:0 18px;
     font-size:15px;
     font-weight:600;
@@ -46,19 +46,22 @@ html,body{
 
 <div class="progress">
     <div class="progress-fill" id="barra">
-        Andamento da Obra
+        <span>Andamento da Obra</span>
+        <span id="valor"></span>
     </div>
 </div>
 
 <script>
 
-/* ===========================
-   ALTERE SOMENTE ESTA LINHA
-   =========================== */
+/* ======================================
+   ALTERE APENAS ESTA LINHA
+   ====================================== */
 
 const percentual = 67;
 
-/* =========================== */
+/* ====================================== */
+
+document.getElementById("valor").textContent = percentual + "%";
 
 window.onload = () => {
     setTimeout(() => {
